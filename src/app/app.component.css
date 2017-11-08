@@ -29,3 +29,53 @@ img {
     display:block;
     margin-bottom:12px;
 }
+
+.my-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 20;
+    top: 0;
+    left: 0;
+}
+
+.my-overlay-container{
+    margin-top: 50px;
+    width: 50%;
+    height: 50%;
+    margin-left: 25%;
+    padding: 20px;
+    background: #FFD9A2;
+    overflow-y: auto;
+    height: 500px;
+    border-radius: 5%;
+    
+}
+
+.my-overlay-questions-container{
+    padding: 20px;
+    width: 30%;
+    background: #FFD9A2;
+    border-radius: 5%;
+
+}
+
+.my-overlay-form{
+    padding: 20px;
+
+}
+
+.my-overlay-box {
+    background: white;
+    margin: 20px;
+}
+
+.my-overlay-name {
+    left: 1%;
+    margin-bottom: 5px;
+}
+
+.btn-margin{
+    margin: 5px;
+}

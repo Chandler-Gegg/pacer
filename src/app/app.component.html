@@ -8,15 +8,38 @@
   display minimum hourly rate
   display maximum hourly rate
   display weekly income
-
-  <div> {{minimumHourlyRate}}</div>
-  <div> {{minimumHourlyRate}}</div>
-  <div> {{weeklyIncome}}</div>
 -->
+  <div> Min: {{minimumHourlyRate}}</div>
+  <div> Max: {{maximumHourlyRate}}</div>
+  <div> Total: {{weeklyIncome}}</div>
+
 
   <!-- #5 add input elements and use ngModel to bind user input fields for adding new client -->
   <div>
       <button> Add new Client </button>
+      <form class="my-overlay-form" #addUserForm="ngForm">
+        <div>
+            <label for="firstName">First Name</label>
+            <input type="text" class="form-control" id="firstName"
+                  required
+                  [(ngModel)]="model.firstName" name="firstName"
+                  #name="ngModel">
+        </div>
+
+        <div >
+            <label for="lastName">Last Name</label>
+            <input type="text" class="form-control" id="lastName"
+                  required
+                  [(ngModel)]="model.lastName" name="lastName"
+                  #name="ngModel">
+        </div>
+
+        <button type="submit" class="btn btn-success btn-margin" (click)="addNewClient()">Add Client</button>
+        <button type="button" class="btn btn-default btn-margin" (click)="addUserForm.reset()">
+          Cancel
+        </button>
+    
+      </form>
   </div>
 
 
@@ -24,13 +47,17 @@
 
     <div id="details-container">
       <h3> Clients *** </h3>
-        <div *ngFor="let item of items | async">
+        <div *ngFor="let client of clients | async">
           
           <div class="customer-details"> 
-            {{item.message | json}}
+            
+            Name: {{client.firstName }}  {{client.lastName }} |
+            Email: {{client.email }} |
+            Hourly Rate: {{client.hourlyRateCharged }} |
+            Visit Frequency: {{client.weeklyVisitFrequency }}
           </div>
           <!-- #3 toggle button text   -->
-          <!-- <button> {{client.activity}} </button> -->
+          <button (click)="updateClientActivity(client)"> {{ client.activity}} </button>
         </div>
     </div>
 </div>
