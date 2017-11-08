@@ -20,25 +20,36 @@ export class AppComponent {
   authState: any = null;
 
   constructor(public afAuth: AngularFireAuth, public af: AngularFireDatabase, private db: AngularFirestore) {
-    //#1 todo convert items collection to a collection of "clients"
+    //1#todo convert items collection to a collection of "clients"
     this.itemsRef = af.list('items');
     this.items = this.itemsRef.valueChanges();
     this.user = this.afAuth.authState;
   }
 
-  //#2
-  login() {
-    this.afAuth.auth.signInAnonymously();
-    //todo route to "pacer-dashboard" component if successful login
+  updateClientActivity(client){
+    //#4 update client activity or toggle between active and inactive locally
   }
 
-  //#3 todo route to logout component
+  addNewClient() {
+    //#6 push newClient member to firebase
+  }
+
+  login() {
+    this.afAuth.auth.signInAnonymously();
+  }
+
   logout() {
       this.afAuth.auth.signOut();
   }
 
-  updateClientActivity(client) {
-    //#7 todo update whether user is active or inactive
+  calculateClientNumbersSummary(){
+    /* #8
+    find minimum $ amount
+    find maximum $ amount
+    find total $ amount
+    */
+  
   }
+
 
 }

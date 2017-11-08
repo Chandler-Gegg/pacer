@@ -10,11 +10,6 @@ export class ListClientsComponent implements OnInit {
   constructor() {
     
   }
-
-  newClient(){
-    //todo push new client to clients collection
-  }
-
   ngOnInit() {
     
   }

@@ -1,25 +1,36 @@
-<div class="row columns">
-  <button (click)="login()" *ngIf="!(user | async)?.uid">Anonymous Login</button>
-  <button (click)="logout()" *ngIf="(user | async)?.uid">Logout</button>
-
-  <!-- <div class="row columns">
-      <div>
-        <h1>Login To Your Account</h1>
-        <button class="btn btn-default" (click)="login()">Login With Google</button>
-      </div>
-  </div> -->
-
-
-<!-- #4 convert to display client fields [firstName, lastName, email, hourlyRateCharged, weeklyVisitFrequency] -->
-<!-- #5 style customer details change a background color if the user is inactive -->
-  <div id="details-container">
-      <div *ngFor="let item of items | async">
-        
-        <div class="customer-details"> 
-          {{item.message | json}}
-        </div>
-        <!-- #6 toggle button text   -->
-        <!-- <button> {{client.activity}} </button> -->
-      </div>
+<div class="columns">
+  <div>
+      <button (click)="login()" *ngIf="!(user | async)?.uid">Anonymous Login</button>
+      <button (click)="logout()" *ngIf="(user | async)?.uid">Logout</button>        
   </div>
+
+<!-- #7 
+  display minimum hourly rate
+  display maximum hourly rate
+  display weekly income
+
+  <div> {{minimumHourlyRate}}</div>
+  <div> {{minimumHourlyRate}}</div>
+  <div> {{weeklyIncome}}</div>
+-->
+
+  <!-- #5 add input elements and use ngModel to bind user input fields for adding new client -->
+  <div>
+      <button> Add new Client </button>
+  </div>
+
+
+  <!-- #2 convert to display client fields [firstName, lastName, email, hourlyRateCharged, weeklyVisitFrequency] -->
+
+    <div id="details-container">
+      <h3> Clients *** </h3>
+        <div *ngFor="let item of items | async">
+          
+          <div class="customer-details"> 
+            {{item.message | json}}
+          </div>
+          <!-- #3 toggle button text   -->
+          <!-- <button> {{client.activity}} </button> -->
+        </div>
+    </div>
 </div>
